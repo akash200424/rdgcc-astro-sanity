@@ -40,5 +40,10 @@ export default defineType({
       title: 'Trusted Brands',
       type: 'trustedBrands',
     }),
+    defineField({
+      name: 'testimonial',
+      title: 'Testimonial',
+      type: 'testimonial',
+    }),
   ],
 })
