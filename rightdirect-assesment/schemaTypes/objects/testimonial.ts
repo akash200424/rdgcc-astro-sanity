@@ -2,7 +2,7 @@ import {defineType, defineField} from 'sanity'
 
 export default defineType({
   name: 'testimonial',
-  title: 'Testimonial',
+  title: 'Client Appreciation',
   type: 'object',
   fields: [
     defineField({
@@ -11,25 +11,42 @@ export default defineType({
       type: 'string',
     }),
     defineField({
-      name: 'quote',
-      title: 'Quote',
-      type: 'text',
-    }),
-    defineField({
-      name: 'author',
-      title: 'Author',
-      type: 'string',
-    }),
-    defineField({
-      name: 'designation',
-      title: 'Designation',
-      type: 'string',
-    }),
-    defineField({
-      name: 'image',
-      title: 'Author Image',
-      type: 'image',
-      options: {hotspot: true},
+      name: 'testimonials',
+      title: 'Testimonials',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'quote',
+              title: 'Quote',
+              type: 'text',
+            }),
+            defineField({
+              name: 'name',
+              title: 'Client Name',
+              type: 'string',
+            }),
+            defineField({
+              name: 'designation',
+              title: 'Designation',
+              type: 'string',
+            }),
+            defineField({
+              name: 'company',
+              title: 'Company',
+              type: 'string',
+            }),
+            defineField({
+              name: 'image',
+              title: 'Client Image',
+              type: 'image',
+              options: {hotspot: true},
+            }),
+          ],
+        },
+      ],
     }),
   ],
 })
