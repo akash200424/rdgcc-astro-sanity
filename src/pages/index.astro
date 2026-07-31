@@ -10,6 +10,7 @@ import SuccessStories from "../components/home/SuccessStories.astro";
 import TrustedBrands from "../components/home/TrustedBrands.astro";
 import Testimonials from "../components/home/Testimonials.astro";
 import WhoWeWorkWith from "../components/home/WhoWeWorkWith.astro";
+import Faq from "../components/home/Faq.astro";
 const homepage = await client.fetch(homepageQuery);
 ---
 
@@ -23,3 +24,4 @@ const homepage = await client.fetch(homepageQuery);
 <TrustedBrands trustedBrands={homepage.trustedBrands} />
 <Testimonials testimonial={homepage.testimonial} />
 <WhoWeWorkWith whoWeWorkWith={homepage.whoWeWorkWith} />
+<Faq faq={homepage.faq} />
