@@ -1,4 +1,5 @@
 import homepage from './documents/homepage'
+import header from './objects/header'
 import button from './objects/button'
 import hero from './objects/hero'
 import seo from './objects/seo'
@@ -14,6 +15,7 @@ import footer from './objects/footer'
 
 export const schemaTypes = [
   homepage,
+  header,
   button,
   hero,
   statistics,
