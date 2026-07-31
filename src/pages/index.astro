@@ -2,9 +2,16 @@
 import { client } from "../lib/sanity";
 import { homepageQuery } from "../lib/queries";
 
+import Hero from "../components/home/Hero.astro";
+import Statistics from "../components/home/Statistics.astro";
+import Solutions from "../components/home/Solutions.astro";
+import Process from "../components/home/Process.astro";
 const homepage = await client.fetch(homepageQuery);
-
-console.log(homepage);
 ---
 
-<h1>Check your terminal</h1>
+<Hero hero={homepage.hero} />
+
+<Statistics statistics={homepage.statistics} />
+
+<Solutions solutions={homepage.solutions} />
+<Process process={homepage.process} />

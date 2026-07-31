@@ -1,0 +1,35 @@
+---
+const { process } = Astro.props;
+---
+
+<section class="py-20 bg-gray-50">
+  <div class="mx-auto max-w-7xl px-6">
+    <h2 class="text-4xl font-bold text-center">
+      {process.heading}
+    </h2>
+
+    <p class="mt-4 text-center text-gray-600">
+      {process.description}
+    </p>
+
+    <div class="mt-12 grid gap-8 md:grid-cols-3">
+      {
+        process?.steps?.map((step: any, index: number) => (
+          <div class="rounded-xl border p-6">
+            <span class="text-3xl font-bold text-blue-600">
+              {index + 1}
+            </span>
+
+            <h3 class="mt-4 text-xl font-semibold">
+              {step.title}
+            </h3>
+
+            <p class="mt-2 text-gray-600">
+              {step.description}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

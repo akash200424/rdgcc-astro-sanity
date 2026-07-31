@@ -1,0 +1,54 @@
+---
+import { urlFor } from "../../lib/sanity";
+
+const { solutions } = Astro.props;
+---
+
+<section class="py-20">
+  <div class="mx-auto max-w-7xl px-6">
+    <h2 class="text-4xl font-bold text-center">
+      {solutions.heading}
+    </h2>
+
+    <p class="mt-4 text-center text-gray-600">
+      {solutions.description}
+    </p>
+
+    <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {
+        solutions.items.map((card: any) => (
+          <div class="rounded-xl border p-6 shadow-sm hover:shadow-md transition">
+            {
+              card.icon && (
+                <img
+                  src={urlFor(card.icon).url()}
+                  alt={card.title}
+                  class="mb-4 h-14 w-14 object-contain"
+                />
+              )
+            }
+
+            <h3 class="text-xl font-semibold">
+              {card.title}
+            </h3>
+
+            <p class="mt-3 text-gray-600">
+              {card.description}
+            </p>
+
+            {
+              card.button && (
+                <a
+                  href={card.button.url}
+                  class="mt-6 inline-block text-blue-600 font-medium"
+                >
+                  {card.button.text} →
+                </a>
+              )
+            }
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
