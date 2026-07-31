@@ -30,5 +30,10 @@ export default defineType({
       title: 'Process',
       type: 'process',
     }),
+    defineField({
+      name: 'successStories',
+      title: 'Success Stories',
+      type: 'successStories',
+    }),
   ],
 })
