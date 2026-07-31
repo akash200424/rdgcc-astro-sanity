@@ -20,5 +20,10 @@ export default defineType({
       title: 'Statistics',
       type: 'statistics',
     }),
+    defineField({
+      name: 'solutions',
+      title: 'Solutions',
+      type: 'solutions',
+    }),
   ],
 })
