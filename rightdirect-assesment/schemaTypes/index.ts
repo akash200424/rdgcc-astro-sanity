@@ -9,6 +9,7 @@ import successStories from './objects/successStories'
 import trustedBrands from './objects/trustedBrands'
 import testimonial from './objects/testimonial'
 import whoWeWorkWith from './objects/whoWeWorkWith'
+import faq from './objects/faq'
 
 export const schemaTypes = [
   homepage,
@@ -21,5 +22,6 @@ export const schemaTypes = [
   trustedBrands,
   testimonial,
   whoWeWorkWith,
+  faq,
   seo,
 ]

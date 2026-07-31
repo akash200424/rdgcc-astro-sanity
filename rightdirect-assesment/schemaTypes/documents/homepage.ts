@@ -50,5 +50,10 @@ export default defineType({
       title: 'Who We Work With',
       type: 'whoWeWorkWith',
     }),
+    defineField({
+      name: 'faq',
+      title: 'FAQ',
+      type: 'faq',
+    }),
   ],
 })
