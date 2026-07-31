@@ -15,5 +15,10 @@ export default defineType({
       title: 'Hero',
       type: 'hero',
     }),
+    defineField({
+      name: 'statistics',
+      title: 'Statistics',
+      type: 'statistics',
+    }),
   ],
 })
