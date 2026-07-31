@@ -19,20 +19,25 @@ export default defineType({
           type: 'object',
           fields: [
             defineField({
-              name: 'title',
-              title: 'Title',
+              name: 'companyName',
+              title: 'Company Name',
               type: 'string',
+            }),
+            defineField({
+              name: 'location',
+              title: 'Location',
+              type: 'string',
+            }),
+            defineField({
+              name: 'logo',
+              title: 'Company Logo',
+              type: 'image',
+              options: {hotspot: true},
             }),
             defineField({
               name: 'description',
               title: 'Description',
               type: 'text',
-            }),
-            defineField({
-              name: 'image',
-              title: 'Image',
-              type: 'image',
-              options: {hotspot: true},
             }),
             defineField({
               name: 'button',

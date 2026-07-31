@@ -39,6 +39,11 @@ export default defineType({
               type: 'image',
               options: {hotspot: true},
             }),
+            defineField({
+              name: 'button',
+              title: 'Button',
+              type: 'button',
+            }),
           ],
         },
       ],
