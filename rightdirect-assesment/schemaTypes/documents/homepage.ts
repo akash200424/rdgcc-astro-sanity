@@ -61,4 +61,12 @@ export default defineType({
       type: 'footer',
     }),
   ],
+
+  preview: {
+    prepare() {
+      return {
+        title: 'Homepage',
+      }
+    },
+  },
 })
