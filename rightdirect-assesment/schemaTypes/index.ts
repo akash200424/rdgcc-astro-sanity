@@ -8,6 +8,7 @@ import process from './objects/process'
 import successStories from './objects/successStories'
 import trustedBrands from './objects/trustedBrands'
 import testimonial from './objects/testimonial'
+import whoWeWorkWith from './objects/whoWeWorkWith'
 
 export const schemaTypes = [
   homepage,
@@ -19,5 +20,6 @@ export const schemaTypes = [
   successStories,
   trustedBrands,
   testimonial,
+  whoWeWorkWith,
   seo,
 ]

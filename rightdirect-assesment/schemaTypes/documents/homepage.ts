@@ -45,5 +45,10 @@ export default defineType({
       title: 'Testimonial',
       type: 'testimonial',
     }),
+    defineField({
+      name: 'whoWeWorkWith',
+      title: 'Who We Work With',
+      type: 'whoWeWorkWith',
+    }),
   ],
 })
