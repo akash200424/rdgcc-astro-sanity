@@ -55,5 +55,10 @@ export default defineType({
       title: 'FAQ',
       type: 'faq',
     }),
+    defineField({
+      name: 'footer',
+      title: 'Footer',
+      type: 'footer',
+    }),
   ],
 })
