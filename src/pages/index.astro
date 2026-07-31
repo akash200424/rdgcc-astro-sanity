@@ -6,6 +6,7 @@ import Hero from "../components/home/Hero.astro";
 import Statistics from "../components/home/Statistics.astro";
 import Solutions from "../components/home/Solutions.astro";
 import Process from "../components/home/Process.astro";
+import SuccessStories from "../components/home/SuccessStories.astro";
 const homepage = await client.fetch(homepageQuery);
 ---
 
@@ -15,3 +16,4 @@ const homepage = await client.fetch(homepageQuery);
 
 <Solutions solutions={homepage.solutions} />
 <Process process={homepage.process} />
+<SuccessStories successStories={homepage.successStories} />
