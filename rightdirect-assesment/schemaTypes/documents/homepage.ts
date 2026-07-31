@@ -35,5 +35,10 @@ export default defineType({
       title: 'Success Stories',
       type: 'successStories',
     }),
+    defineField({
+      name: 'trustedBrands',
+      title: 'Trusted Brands',
+      type: 'trustedBrands',
+    }),
   ],
 })
