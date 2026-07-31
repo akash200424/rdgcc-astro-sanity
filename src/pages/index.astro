@@ -1,0 +1,10 @@
+---
+import { client } from "../lib/sanity";
+import { homepageQuery } from "../lib/queries";
+
+const homepage = await client.fetch(homepageQuery);
+
+console.log(homepage);
+---
+
+<h1>Check your terminal</h1>
