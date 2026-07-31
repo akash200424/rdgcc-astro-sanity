@@ -7,6 +7,8 @@ import Statistics from "../components/home/Statistics.astro";
 import Solutions from "../components/home/Solutions.astro";
 import Process from "../components/home/Process.astro";
 import SuccessStories from "../components/home/SuccessStories.astro";
+import TrustedBrands from "../components/home/TrustedBrands.astro";
+import Testimonials from "../components/home/Testimonials.astro";
 const homepage = await client.fetch(homepageQuery);
 ---
 
@@ -17,3 +19,5 @@ const homepage = await client.fetch(homepageQuery);
 <Solutions solutions={homepage.solutions} />
 <Process process={homepage.process} />
 <SuccessStories successStories={homepage.successStories} />
+<TrustedBrands trustedBrands={homepage.trustedBrands} />
+<Testimonials testimonial={homepage.testimonial} />
