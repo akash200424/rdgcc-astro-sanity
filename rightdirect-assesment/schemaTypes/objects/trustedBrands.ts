@@ -19,13 +19,8 @@ export default defineType({
           type: 'object',
           fields: [
             defineField({
-              name: 'name',
-              title: 'Brand Name',
-              type: 'string',
-            }),
-            defineField({
               name: 'logo',
-              title: 'Logo',
+              title: 'Brand Logo',
               type: 'image',
               options: {hotspot: true},
             }),
