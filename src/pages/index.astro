@@ -20,39 +20,30 @@ const homepage = await client.fetch(homepageQuery);
 const header = await client.fetch(headerQuery);
 ---
 
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>RightDirect</title>
+    <title>RightDirect | AI Powered Digital Transformation</title>
+
+    <meta
+      name="description"
+      content="Accelerate go-to-market, elevate customer experiences and enable modern workplaces with AI-powered agile delivery solutions."
+    />
   </head>
 
   <body>
     <Header header={header} />
-
     <Hero hero={homepage.hero} />
-
     <Statistics statistics={homepage.statistics} />
-
     <Solutions solutions={homepage.solutions} />
-
     <Process process={homepage.process} />
-
     <SuccessStories successStories={homepage.successStories} />
-
     <TrustBrands trustedBrands={homepage.trustedBrands} />
-
     <Testimonials testimonial={homepage.testimonial} />
-
     <WhoWeWorkWith whoWeWorkWith={homepage.whoWeWorkWith} />
-
     <Faq faq={homepage.faq} />
-
     <Footer footer={homepage.footer} />
   </body>
 </html>
