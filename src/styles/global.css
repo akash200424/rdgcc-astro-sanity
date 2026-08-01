@@ -20,8 +20,20 @@ section {
   padding-inline: 24px;
 }
 .page-container {
-  max-width: 1900px;
+  width: 100%;
+  max-width: 1850px;
   margin: 0 auto;
-  padding-left: 56px;
-  padding-right: 56px;
+  padding-inline: 70px;
+}
+
+@media (max-width: 1024px) {
+  .page-container {
+    padding-inline: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-container {
+    padding-inline: 20px;
+  }
 }

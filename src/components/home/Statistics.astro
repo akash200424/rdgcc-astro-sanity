@@ -2,22 +2,63 @@
 const { statistics } = Astro.props;
 ---
 
-<section class="py-16 bg-gray-50">
-  <div class="mx-auto max-w-7xl px-6">
-    <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
-      {
-        statistics.items.map((item: any) => (
-          <div class="text-center">
-            <h2 class="text-4xl font-bold text-blue-600">
-              {item.value}
-            </h2>
+<section
+  id="statistics"
+  class="bg-[#F3F3F3] py-24"
+>
+  <div class="page-container">
 
-            <p class="mt-2 text-gray-600">
-              {item.label}
-            </p>
-          </div>
-        ))
-      }
+    <div class="grid items-center gap-14 lg:grid-cols-[0.9fr_1.5fr]">
+
+      <!-- Left -->
+      <div>
+
+        <h2
+          class="max-w-md text-[58px] font-bold leading-[1.1] tracking-[-1px] text-[#0A4D8C]"
+        >
+          {statistics.title}
+        </h2>
+
+        <p
+          class="mt-8 max-w-md text-[23px] leading-9 text-slate-600"
+        >
+          {statistics.desc}
+        </p>
+
+      </div>
+
+      <!-- Right -->
+
+      <div class="grid gap-8 md:grid-cols-3">
+
+        {
+          statistics.items?.map((item: any) => (
+
+            <div
+              class="rounded-[26px] bg-white p-12 shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition duration-300 hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(0,0,0,0.12)]"
+            >
+
+              <h3
+                class="text-center text-[64px] font-bold text-[#0A4D8C]"
+              >
+                {item.value}
+              </h3>
+
+              <p
+                class="mt-5 text-center text-[28px] font-semibold text-gray-600"
+              >
+                {item.label}
+              </p>
+
+            </div>
+
+          ))
+        }
+
+      </div>
+
     </div>
+
   </div>
+
 </section>
