@@ -4,128 +4,129 @@ import { urlFor } from "../../lib/sanity";
 const { footer } = Astro.props;
 ---
 
-<footer
-  id="footer"
-  class="relative overflow-hidden text-white"
->
+<section class="relative">
 
-  {
-    footer.backgroundImage && (
+  <!-- CTA Banner -->
+  <div class="relative h-[430px] overflow-hidden">
 
-      <img
-        src={urlFor(footer.backgroundImage).url()}
-        alt="Footer Background"
-        class="absolute inset-0 h-full w-full object-cover"
-      />
+    {
+      footer.backgroundImage && (
+        <img
+          src={urlFor(footer.backgroundImage).url()}
+          alt=""
+          class="absolute inset-0 h-full w-full object-cover"
+        />
+      )
+    }
 
-    )
-  }
+    <div class="absolute inset-0 bg-black/60"></div>
 
-  <div class="absolute inset-0 bg-black/70"></div>
+    <div class="relative z-10 mx-auto flex h-full max-w-7xl flex-col items-center justify-center px-6 text-center">
 
-  <div class="relative z-10 py-20">
+      <h2 class="max-w-5xl text-6xl font-bold text-white">
+        {footer.heading}
+      </h2>
 
-    <div class="mx-auto max-w-7xl px-6">
+      <p class="mt-6 max-w-4xl text-xl leading-8 text-white/90">
+        {footer.description}
+      </p>
 
-      <div class="text-center">
-
-        <h2 class="text-5xl font-bold">
-          {footer.ctaHeading}
-        </h2>
-
-        <p class="mx-auto mt-5 max-w-3xl text-lg">
-          {footer.ctaDescription}
-        </p>
-
-        {
-          footer.button && (
-
-            <a
-              href={footer.button.url}
-              class="mt-8 inline-block rounded-full bg-blue-700 px-8 py-4"
-            >
-              {footer.button.text}
-            </a>
-
-          )
-        }
-
-      </div>
-
-      <div class="mt-20 grid gap-10 md:grid-cols-3">
-
-        <div>
-
-          <h3 class="mb-4 text-xl font-semibold">
-            Delivery Office
-          </h3>
-
-          <p>
-            {footer.deliveryOffice}
-          </p>
-
-        </div>
-
-        <div class="text-center">
-
-          {
-            footer.logo && (
-
-              <img
-                src={urlFor(footer.logo).url()}
-                alt="Logo"
-                class="mx-auto mb-4 h-14"
-              />
-
-            )
-          }
-
-          <p class="font-semibold">
-            RightDirect Growth Consulting Company
-          </p>
-
-          <p class="mt-4">
-            {footer.aboutCompany}
-          </p>
-
-        </div>
-
-        <div>
-
-          <h3 class="mb-4 text-xl font-semibold">
-            Registered Office
-          </h3>
-
-          <p>
-            {footer.registeredOffice}
-          </p>
-
-        </div>
-
-      </div>
-
-      <div class="mt-16 flex flex-col items-center justify-between gap-5 border-t border-white/20 pt-8 md:flex-row">
-
-        <p>
-          {footer.copyright}
-        </p>
-
-        <div class="space-x-6">
-
-          <a href={footer.privacyPolicyUrl}>
-            Privacy Policy
+      {
+        footer.button && (
+          <a
+            href={footer.button.url}
+            class="mt-10 rounded-full bg-[#0A4D8C] px-10 py-4 text-lg font-semibold text-white transition hover:bg-[#08376E]"
+          >
+            {footer.button.text} →
           </a>
-
-          <a href={footer.termsConditionsUrl}>
-            Terms & Conditions
-          </a>
-
-        </div>
-
-      </div>
+        )
+      }
 
     </div>
 
   </div>
 
-</footer>
+  <!-- Footer -->
+  <footer class="bg-[#081C3A] text-white">
+
+    <div class="mx-auto max-w-7xl px-8 py-16">
+
+      <!-- Logo -->
+      <div class="text-center">
+
+        {
+          footer.logo && (
+            <img
+              src={urlFor(footer.logo).url()}
+              alt={footer.companyName}
+              class="mx-auto h-14 object-contain"
+            />
+          )
+        }
+
+        <h3 class="mt-5 text-3xl font-semibold">
+          {footer.companyName}
+        </h3>
+
+      </div>
+
+      <!-- Addresses -->
+      <div class="mt-16 grid gap-12 md:grid-cols-2">
+
+        {
+          footer.addresses?.map((office: any) => (
+
+            <div>
+
+              <h4 class="mb-5 text-2xl font-semibold">
+                {office.title}
+              </h4>
+
+              <p class="text-lg leading-9 text-gray-300 whitespace-pre-line">
+                {office.address}
+              </p>
+
+            </div>
+
+          ))
+        }
+
+      </div>
+
+      <!-- About -->
+      <div class="mx-auto mt-14 max-w-5xl text-center">
+
+        <p class="text-lg leading-9 text-gray-300">
+          {footer.about}
+        </p>
+
+      </div>
+
+      <!-- Footer Links -->
+      <div class="mt-12 flex flex-wrap justify-center gap-8 text-lg">
+
+        {
+          footer.links?.map((link: any) => (
+
+            <a
+              href={link.url}
+              class="text-gray-300 transition hover:text-white"
+            >
+              {link.text}
+            </a>
+
+          ))
+        }
+
+      </div>
+
+      <!-- Copyright -->
+      <div class="mt-10 border-t border-white/10 pt-8 text-center text-base text-gray-400">
+        {footer.copyright}
+      </div>
+
+    </div>
+
+  </footer>
+
+</section>

@@ -4,20 +4,20 @@ export default defineType({
   name: 'whoWeWorkWith',
   title: 'Who We Work With',
   type: 'object',
+
   fields: [
     defineField({
       name: 'heading',
-      title: 'Heading',
       type: 'string',
     }),
+
     defineField({
       name: 'description',
-      title: 'Description',
       type: 'text',
     }),
+
     defineField({
-      name: 'clients',
-      title: 'Client Types',
+      name: 'categories',
       type: 'array',
       of: [
         {
@@ -25,19 +25,20 @@ export default defineType({
           fields: [
             defineField({
               name: 'title',
-              title: 'Title',
               type: 'string',
             }),
+
             defineField({
               name: 'description',
-              title: 'Description',
               type: 'text',
             }),
+
             defineField({
-              name: 'icon',
-              title: 'Icon',
+              name: 'image',
               type: 'image',
-              options: {hotspot: true},
+              options: {
+                hotspot: true,
+              },
             }),
           ],
         },

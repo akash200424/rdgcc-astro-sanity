@@ -2,49 +2,64 @@
 const { hero } = Astro.props;
 ---
 
-<section id="hero" class="bg-[#FAFBFC]">
-  <div class="page-container grid h-[760px] items-center gap-24 pt-8 lg:grid-cols-[1.15fr_0.85fr]">
+<section
+  id="hero"
+  class="overflow-hidden bg-[#FAFBFC]"
+>
+  <div
+    class="mx-auto grid min-h-[760px] max-w-[1900px] items-center gap-16 px-20 py-8 lg:grid-cols-[65%_35%]"
+  >
 
     <!-- Left Content -->
-    <div class="max-w-[1500px]">
+    <div class="max-w-[1100px]">
 
-      <h1 class="space-y-1 text-[68px] max-w-[1500px] font-bold leading-[1.05] tracking-[-2px]">
+      <h1
+        class="space-y-2 text-[72px] font-bold leading-[1.05] tracking-[-2px]"
+      >
 
         {
           hero?.headingLines?.map((line: any) => (
+
             <div>
+
               <span class="text-[#111827]">
                 {line.normalText}
               </span>
 
               {
                 line.highlightText && (
-                  <span class="ml-2 text-[#0A4D8C]">
+                  <span class="ml-3 text-[#0A4D8C]">
                     {line.highlightText}
                   </span>
                 )
               }
+
             </div>
+
           ))
         }
 
       </h1>
 
-      <p class="mt-10 max-w-[760px] text-[22px] leading-[1.75] text-slate-600">
+      <p
+        class="mt-10 max-w-[900px] text-[24px] leading-[1.8] text-slate-600"
+      >
         {hero.description}
       </p>
 
       {
         hero?.button && (
+
           <a
             href={hero.button.url}
-            class="mt-12 inline-flex items-center gap-3 rounded-full bg-[#0A4D8C] px-9 py-4 text-[18px] font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#08376E] hover:shadow-xl"
+            class="mt-12 inline-flex items-center gap-3 rounded-full bg-[#0A4D8C] px-10 py-5 text-[20px] font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-[#08376E] hover:shadow-2xl"
           >
+
             {hero.button.text}
 
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5"
+              class="h-6 w-6"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -56,26 +71,50 @@ const { hero } = Astro.props;
                 d="M5 12h14M13 5l7 7-7 7"
               />
             </svg>
+
           </a>
+
         )
       }
 
     </div>
 
     <!-- Right Illustration -->
-    <div class="relative hidden h-[620px] lg:block">
+    <div class="hidden lg:flex items-center justify-center">
 
-      <!-- Large Background -->
-      <div class="absolute right-2 top-20 h-[430px] w-[430px] rounded-[40px] bg-[#E8F1FB] opacity-70"></div>
+      <div class="relative h-[700px] w-[700px]">
 
-      <!-- Outline Square -->
-      <div class="absolute right-14 top-32 h-[340px] w-[340px] rounded-[34px] border-[14px] border-[#D8E7FA]"></div>
+        <!-- Background Block -->
+        <div
+          class="absolute left-24 top-24 h-[470px] w-[470px] rounded-[42px] bg-[#EAF2FB]"
+        ></div>
 
-      <!-- Top Grey -->
-      <div class="absolute right-0 top-0 h-44 w-44 rounded-[30px] bg-[#BFBFBF] shadow-xl"></div>
+        <!-- Outline Square -->
+        <div
+          class="absolute left-40 top-40 h-[360px] w-[360px] rounded-[36px] border-[14px] border-[#DCE9F8]"
+        ></div>
 
-      <!-- Bottom Blue -->
-      <div class="absolute bottom-10 left-0 h-52 w-52 rounded-[34px] bg-[#4D7FAF] shadow-2xl"></div>
+        <!-- Top Grey -->
+        <div
+          class="absolute right-10 top-0 h-44 w-44 rounded-[30px] bg-[#C7C7C7] shadow-2xl"
+        ></div>
+
+        <!-- Bottom Blue -->
+        <div
+          class="absolute bottom-10 left-0 h-56 w-56 rounded-[34px] bg-[#4D7FAF] shadow-2xl"
+        ></div>
+
+        <!-- Small Blue -->
+        <div
+          class="absolute bottom-0 left-60 h-16 w-16 rounded-2xl bg-[#4D7FAF] shadow-xl"
+        ></div>
+
+        <!-- Small Grey -->
+        <div
+          class="absolute right-28 top-48 h-16 w-16 rounded-2xl bg-[#BDBDBD] shadow-lg"
+        ></div>
+
+      </div>
 
     </div>
 

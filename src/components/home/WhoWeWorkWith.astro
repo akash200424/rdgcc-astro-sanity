@@ -4,40 +4,125 @@ import { urlFor } from "../../lib/sanity";
 const { whoWeWorkWith } = Astro.props;
 ---
 
-<section class="py-20 bg-gray-50">
-  <div class="mx-auto max-w-7xl px-6">
-    <h2 class="text-center text-4xl font-bold">
-      {whoWeWorkWith.heading}
-    </h2>
+<section
+  id="who-we-work-with"
+  class="bg-white py-32"
+>
+  <div class="mx-auto max-w-[1850px] px-16">
 
-    <p class="mt-4 text-center text-gray-600">
-      {whoWeWorkWith.description}
-    </p>
+    <!-- Heading -->
+    <div class="mx-auto max-w-[1500px] text-center">
 
-    <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+      <h2
+        class="text-[62px] font-bold leading-tight tracking-[-1px] text-[#0A4D8C]"
+      >
+        {whoWeWorkWith.heading}
+      </h2>
+
+      <p
+        class="mx-auto mt-8 max-w-[1300px] text-[24px] leading-[1.8] text-slate-600"
+      >
+        {whoWeWorkWith.description}
+      </p>
+
+    </div>
+
+    <!-- Categories -->
+    <div class="mt-28 space-y-32">
+
       {
-        whoWeWorkWith?.categories?.map((item: any) => (
-          <div class="rounded-xl border p-6 text-center shadow-sm">
+        whoWeWorkWith?.categories?.map((item: any, index: number) => (
+
+          <div
+            class={`grid items-center gap-24 ${
+              index % 2 === 0
+                ? "lg:grid-cols-[440px_1fr]"
+                : "lg:grid-cols-[1fr_440px]"
+            }`}
+          >
+
             {
-              item.image && (
-                <img
-                  src={urlFor(item.image).url()}
-                  alt={item.title}
-                  class="mx-auto mb-4 h-20 w-20 object-contain"
-                />
+              index % 2 === 0 ? (
+
+                <div class="flex justify-center">
+
+                  {
+                    item.image && (
+                      <img
+                        src={urlFor(item.image).url()}
+                        alt={item.title}
+                        class="h-[400px] w-[400px] rounded-full object-cover shadow-2xl"
+                      />
+                    )
+                  }
+
+                </div>
+
+              ) : (
+
+                <div class="max-w-[1050px]">
+
+                  <h3
+                    class="text-[42px] font-bold leading-tight text-[#0A4D8C]"
+                  >
+                    {item.title}
+                  </h3>
+
+                  <p
+                    class="mt-8 text-[24px] leading-[1.85] text-slate-600"
+                  >
+                    {item.description}
+                  </p>
+
+                </div>
+
               )
             }
 
-            <h3 class="text-xl font-semibold">
-              {item.title}
-            </h3>
+            {
+              index % 2 === 0 ? (
 
-            <p class="mt-2 text-gray-600">
-              {item.description}
-            </p>
+                <div class="max-w-[1050px]">
+
+                  <h3
+                    class="text-[42px] font-bold leading-tight text-[#0A4D8C]"
+                  >
+                    {item.title}
+                  </h3>
+
+                  <p
+                    class="mt-8 text-[24px] leading-[1.85] text-slate-600"
+                  >
+                    {item.description}
+                  </p>
+
+                </div>
+
+              ) : (
+
+                <div class="flex justify-center">
+
+                  {
+                    item.image && (
+                      <img
+                        src={urlFor(item.image).url()}
+                        alt={item.title}
+                        class="h-[400px] w-[400px] rounded-full object-cover shadow-2xl"
+                      />
+                    )
+                  }
+
+                </div>
+
+              )
+            }
+
           </div>
+
         ))
       }
+
     </div>
+
   </div>
 </section>
