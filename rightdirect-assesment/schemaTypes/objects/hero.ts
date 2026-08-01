@@ -60,15 +60,6 @@ export default defineType({
       title: 'Button',
       type: 'button',
     }),
-
-    defineField({
-      name: 'image',
-      title: 'Hero Image (Optional)',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-    }),
   ],
 
   preview: {

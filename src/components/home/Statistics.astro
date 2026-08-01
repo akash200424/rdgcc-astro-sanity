@@ -28,31 +28,36 @@ const { statistics } = Astro.props;
       </div>
 
       <!-- Right -->
-
       <div class="grid gap-8 md:grid-cols-3">
 
         {
-          statistics.items?.map((item: any) => (
+          statistics.items?.map((item: any) => {
 
-            <div
-              class="rounded-[26px] bg-white p-12 shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition duration-300 hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(0,0,0,0.12)]"
-            >
+            const value = parseInt(item.value.replace(/\D/g, ""));
+            const suffix = item.value.replace(/[0-9]/g, "");
 
-              <h3
-                class="text-center text-[64px] font-bold text-[#0A4D8C]"
+            return (
+              <div
+                class="rounded-[26px] bg-white p-12 shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition duration-300 hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(0,0,0,0.12)]"
               >
-                {item.value}
-              </h3>
 
-              <p
-                class="mt-5 text-center text-[28px] font-semibold text-gray-600"
-              >
-                {item.label}
-              </p>
+                <h3
+                  class="counter text-center text-[64px] font-bold text-[#0A4D8C]"
+                  data-target={value}
+                  data-suffix={suffix}
+                >
+                  0{suffix}
+                </h3>
 
-            </div>
+                <p
+                  class="mt-5 text-center text-[28px] font-semibold text-gray-600"
+                >
+                  {item.label}
+                </p>
 
-          ))
+              </div>
+            );
+          })
         }
 
       </div>
@@ -60,5 +65,55 @@ const { statistics } = Astro.props;
     </div>
 
   </div>
-
 </section>
+
+<script is:inline>
+function initCounters() {
+
+  const counters = document.querySelectorAll(".counter");
+
+  if (!counters.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach((entry) => {
+
+      if (!entry.isIntersecting) return;
+
+      const counter = entry.target;
+
+      const target = Number(counter.dataset.target);
+      const suffix = counter.dataset.suffix || "";
+
+      let current = 0;
+      const duration = 1800;
+      const stepTime = 20;
+      const increment = Math.ceil(target / (duration / stepTime));
+
+      const timer = setInterval(() => {
+
+        current += increment;
+
+        if (current >= target) {
+          current = target;
+          clearInterval(timer);
+        }
+
+        counter.textContent = current + suffix;
+
+      }, stepTime);
+
+      observer.unobserve(counter);
+
+    });
+
+  }, {
+    threshold: 0.4
+  });
+
+  counters.forEach(counter => observer.observe(counter));
+}
+
+document.addEventListener("DOMContentLoaded", initCounters);
+document.addEventListener("astro:page-load", initCounters);
+</script>

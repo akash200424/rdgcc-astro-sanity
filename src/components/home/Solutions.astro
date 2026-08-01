@@ -64,19 +64,21 @@ const { solutions } = Astro.props;
 
               <!-- Bullet Points -->
               {
-                item.points &&
-                item.points.length > 0 && (
-                  <ul class="mt-8 flex-1 list-disc space-y-4 pl-7 text-[18px] leading-9 text-slate-700">
+  item.bulletPoints &&
+  item.bulletPoints.length > 0 && (
 
-                    {
-                      item.points.map((point: any) => (
-                        <li>{point.text}</li>
-                      ))
-                    }
+    <ul class="mt-8 flex-1 list-disc space-y-4 pl-7 text-[18px] leading-9 text-slate-700">
 
-                  </ul>
-                )
-              }
+      {
+        item.bulletPoints.map((point: string) => (
+          <li>{point}</li>
+        ))
+      }
+
+    </ul>
+
+  )
+}
 
               <!-- Button -->
               <div class="mt-auto pt-10">
