@@ -20,23 +20,39 @@ const homepage = await client.fetch(homepageQuery);
 const header = await client.fetch(headerQuery);
 ---
 
-<Header header={header} />
-<Hero hero={homepage.hero} />
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
 
-<Statistics statistics={homepage.statistics} />
+    <title>RightDirect</title>
+  </head>
 
-<Solutions solutions={homepage.solutions} />
+  <body>
+    <Header header={header} />
 
-<Process process={homepage.process} />
+    <Hero hero={homepage.hero} />
 
-<SuccessStories successStories={homepage.successStories} />
+    <Statistics statistics={homepage.statistics} />
 
-<TrustBrands trustedBrands={homepage.trustedBrands} />
+    <Solutions solutions={homepage.solutions} />
 
-<Testimonials testimonial={homepage.testimonial} />
+    <Process process={homepage.process} />
 
-<WhoWeWorkWith whoWeWorkWith={homepage.whoWeWorkWith} />
+    <SuccessStories successStories={homepage.successStories} />
 
-<Faq faq={homepage.faq} />
+    <TrustBrands trustedBrands={homepage.trustedBrands} />
 
-<Footer footer={homepage.footer} />
+    <Testimonials testimonial={homepage.testimonial} />
+
+    <WhoWeWorkWith whoWeWorkWith={homepage.whoWeWorkWith} />
+
+    <Faq faq={homepage.faq} />
+
+    <Footer footer={homepage.footer} />
+  </body>
+</html>
