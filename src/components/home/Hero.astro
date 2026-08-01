@@ -1,38 +1,83 @@
 ---
-import { urlFor } from "../../lib/sanity";
-
 const { hero } = Astro.props;
 ---
 
-<section class="bg-white py-20">
-  <div class="mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-12 items-center">
-    <div>
-      <h1 class="text-5xl font-bold leading-tight">
-        {hero.heading}
+<section id="hero" class="bg-[#FAFBFC]">
+  <div class="page-container grid h-[760px] items-center gap-24 pt-8 lg:grid-cols-[1.15fr_0.85fr]">
+
+    <!-- Left Content -->
+    <div class="max-w-[1500px]">
+
+      <h1 class="space-y-1 text-[68px] max-w-[1500px] font-bold leading-[1.05] tracking-[-2px]">
+
+        {
+          hero?.headingLines?.map((line: any) => (
+            <div>
+              <span class="text-[#111827]">
+                {line.normalText}
+              </span>
+
+              {
+                line.highlightText && (
+                  <span class="ml-2 text-[#0A4D8C]">
+                    {line.highlightText}
+                  </span>
+                )
+              }
+            </div>
+          ))
+        }
+
       </h1>
 
-      <p class="mt-6 text-lg text-gray-600">
+      <p class="mt-10 max-w-[760px] text-[22px] leading-[1.75] text-slate-600">
         {hero.description}
       </p>
 
-      <a
-        href={hero.button.url}
-        class="mt-8 inline-block rounded-lg bg-blue-600 px-6 py-3 text-white hover:bg-blue-700"
-      >
-        {hero.button.text}
-      </a>
-    </div>
-
-    <div>
       {
-        hero.image && (
-          <img
-            src={urlFor(hero.image).url()}
-            alt={hero.heading}
-            class="w-full rounded-xl"
-          />
+        hero?.button && (
+          <a
+            href={hero.button.url}
+            class="mt-12 inline-flex items-center gap-3 rounded-full bg-[#0A4D8C] px-9 py-4 text-[18px] font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#08376E] hover:shadow-xl"
+          >
+            {hero.button.text}
+
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 12h14M13 5l7 7-7 7"
+              />
+            </svg>
+          </a>
         )
       }
+
     </div>
+
+    <!-- Right Illustration -->
+    <div class="relative hidden h-[620px] lg:block">
+
+      <!-- Large Background -->
+      <div class="absolute right-2 top-20 h-[430px] w-[430px] rounded-[40px] bg-[#E8F1FB] opacity-70"></div>
+
+      <!-- Outline Square -->
+      <div class="absolute right-14 top-32 h-[340px] w-[340px] rounded-[34px] border-[14px] border-[#D8E7FA]"></div>
+
+      <!-- Top Grey -->
+      <div class="absolute right-0 top-0 h-44 w-44 rounded-[30px] bg-[#BFBFBF] shadow-xl"></div>
+
+      <!-- Bottom Blue -->
+      <div class="absolute bottom-10 left-0 h-52 w-52 rounded-[34px] bg-[#4D7FAF] shadow-2xl"></div>
+
+    </div>
+
   </div>
 </section>

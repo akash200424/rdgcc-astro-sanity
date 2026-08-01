@@ -1,0 +1,119 @@
+---
+import { urlFor } from "../../lib/sanity";
+
+const { header } = Astro.props;
+---
+
+<header class="sticky top-0 z-50 border-b border-gray-200 bg-white shadow-sm">
+  <div class="page-container flex h-24 items-center">
+
+    <!-- Logo -->
+    <a href="#hero" class="flex items-center">
+      {
+        header?.logo && (
+          <img
+            src={urlFor(header.logo).url()}
+            alt="RightDirect"
+            class="h-30 w-auto object-contain"
+          />
+        )
+      }
+    </a>
+    <div class="ml-auto flex items-center gap-10">
+
+    <!-- Navigation -->
+    <nav class="ml-24 hidden items-center gap-12 xl:flex">
+
+      {
+        header?.navigation?.map((item: any) => (
+          <a
+            href={item.url}
+            class="text-[24px] font-medium text-slate-700 transition duration-300 hover:text-[#0A4D8C]"
+          >
+            {item.label}
+          </a>
+        ))
+      }
+
+      <!-- About Dropdown -->
+      <div class="items-center">
+
+        <button
+          class="flex items-center gap-1 text-[24px] font-medium text-slate-700 transition duration-300 hover:text-[#0A4D8C]"
+        >
+          About
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4 transition group-hover:rotate-180"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+
+        </button>
+
+        <div
+          class="absolute left-0 top-full hidden min-w-[220px] overflow-hidden rounded-xl border border-gray-200 bg-white shadow-xl group-hover:block"
+        >
+
+          {
+            header?.aboutMenu?.map((item: any) => (
+              <a
+                href={item.url}
+                class="block px-5 py-3 text-[16px] text-slate-700 transition hover:bg-gray-50 hover:text-[#0A4D8C]"
+              >
+                {item.label}
+              </a>
+            ))
+          }
+
+        </div>
+
+      </div>
+
+    </nav>
+
+    <!-- CTA -->
+    {
+      header?.ctaButton && (
+        <a
+          href={header.ctaButton.url}
+          class="hidden rounded-full bg-[#0A4D8C] px-9 py-4 text-[17px] font-semibold text-white transition duration-300 hover:bg-[#08376E] xl:inline-flex"
+        >
+          {header.ctaButton.text}
+        </a>
+      )
+    }
+    </div>
+
+    <!-- Mobile Menu -->
+    <button
+      class="rounded-lg p-2 transition hover:bg-gray-100 xl:hidden"
+      aria-label="Menu"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-7 w-7"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"
+        />
+      </svg>
+    </button>
+
+  </div>
+</header>

@@ -1,0 +1,131 @@
+---
+import { urlFor } from "../../lib/sanity";
+
+const { footer } = Astro.props;
+---
+
+<footer
+  id="footer"
+  class="relative overflow-hidden text-white"
+>
+
+  {
+    footer.backgroundImage && (
+
+      <img
+        src={urlFor(footer.backgroundImage).url()}
+        alt="Footer Background"
+        class="absolute inset-0 h-full w-full object-cover"
+      />
+
+    )
+  }
+
+  <div class="absolute inset-0 bg-black/70"></div>
+
+  <div class="relative z-10 py-20">
+
+    <div class="mx-auto max-w-7xl px-6">
+
+      <div class="text-center">
+
+        <h2 class="text-5xl font-bold">
+          {footer.ctaHeading}
+        </h2>
+
+        <p class="mx-auto mt-5 max-w-3xl text-lg">
+          {footer.ctaDescription}
+        </p>
+
+        {
+          footer.button && (
+
+            <a
+              href={footer.button.url}
+              class="mt-8 inline-block rounded-full bg-blue-700 px-8 py-4"
+            >
+              {footer.button.text}
+            </a>
+
+          )
+        }
+
+      </div>
+
+      <div class="mt-20 grid gap-10 md:grid-cols-3">
+
+        <div>
+
+          <h3 class="mb-4 text-xl font-semibold">
+            Delivery Office
+          </h3>
+
+          <p>
+            {footer.deliveryOffice}
+          </p>
+
+        </div>
+
+        <div class="text-center">
+
+          {
+            footer.logo && (
+
+              <img
+                src={urlFor(footer.logo).url()}
+                alt="Logo"
+                class="mx-auto mb-4 h-14"
+              />
+
+            )
+          }
+
+          <p class="font-semibold">
+            RightDirect Growth Consulting Company
+          </p>
+
+          <p class="mt-4">
+            {footer.aboutCompany}
+          </p>
+
+        </div>
+
+        <div>
+
+          <h3 class="mb-4 text-xl font-semibold">
+            Registered Office
+          </h3>
+
+          <p>
+            {footer.registeredOffice}
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="mt-16 flex flex-col items-center justify-between gap-5 border-t border-white/20 pt-8 md:flex-row">
+
+        <p>
+          {footer.copyright}
+        </p>
+
+        <div class="space-x-6">
+
+          <a href={footer.privacyPolicyUrl}>
+            Privacy Policy
+          </a>
+
+          <a href={footer.termsConditionsUrl}>
+            Terms & Conditions
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</footer>

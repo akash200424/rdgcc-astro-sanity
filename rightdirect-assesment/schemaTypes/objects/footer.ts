@@ -20,6 +20,14 @@ export default defineType({
       title: 'CTA Button',
       type: 'button',
     }),
+    defineField({
+      name: 'backgroundImage',
+      title: 'Background Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    }),
 
     defineField({
       name: 'companyLogo',
@@ -45,19 +53,6 @@ export default defineType({
       title: 'About Company',
       type: 'text',
     }),
-
-    defineField({
-      name: 'privacyPolicyUrl',
-      title: 'Privacy Policy URL',
-      type: 'url',
-    }),
-
-    defineField({
-      name: 'termsConditionsUrl',
-      title: 'Terms & Conditions URL',
-      type: 'url',
-    }),
-
     defineField({
       name: 'copyright',
       title: 'Copyright',

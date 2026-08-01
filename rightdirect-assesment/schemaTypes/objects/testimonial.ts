@@ -4,12 +4,22 @@ export default defineType({
   name: 'testimonial',
   title: 'Client Appreciation',
   type: 'object',
+
   fields: [
     defineField({
       name: 'heading',
       title: 'Heading',
       type: 'string',
+      validation: (Rule) => Rule.required(),
     }),
+
+    defineField({
+      name: 'description',
+      title: 'Description',
+      type: 'text',
+      rows: 3,
+    }),
+
     defineField({
       name: 'testimonials',
       title: 'Testimonials',
@@ -19,34 +29,55 @@ export default defineType({
           type: 'object',
           fields: [
             defineField({
-              name: 'quote',
-              title: 'Quote',
-              type: 'text',
-            }),
-            defineField({
-              name: 'name',
+              name: 'clientName',
               title: 'Client Name',
               type: 'string',
             }),
+
             defineField({
               name: 'designation',
               title: 'Designation',
               type: 'string',
             }),
+
             defineField({
               name: 'company',
               title: 'Company',
               type: 'string',
             }),
+
             defineField({
-              name: 'image',
+              name: 'clientImage',
               title: 'Client Image',
               type: 'image',
-              options: {hotspot: true},
+              options: {
+                hotspot: true,
+              },
+            }),
+
+            defineField({
+              name: 'quote',
+              title: 'Quote',
+              type: 'text',
+              rows: 5,
             }),
           ],
+
+          preview: {
+            select: {
+              title: 'clientName',
+              subtitle: 'company',
+              media: 'clientImage',
+            },
+          },
         },
       ],
     }),
   ],
+
+  preview: {
+    select: {
+      title: 'heading',
+    },
+  },
 })

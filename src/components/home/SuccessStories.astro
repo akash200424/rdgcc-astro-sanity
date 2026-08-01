@@ -4,51 +4,76 @@ import { urlFor } from "../../lib/sanity";
 const { successStories } = Astro.props;
 ---
 
-<section class="py-20">
+<section id="success-stories" class="bg-white py-20">
   <div class="mx-auto max-w-7xl px-6">
-    <h2 class="text-4xl font-bold text-center">
+
+    <h2 class="text-center text-4xl font-bold text-blue-900">
       {successStories.heading}
     </h2>
 
-    <div class="mt-12 grid gap-8 md:grid-cols-2">
+    <p class="mx-auto mt-4 max-w-3xl text-center text-gray-600">
+      {successStories.description}
+    </p>
+
+    <div class="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+
       {
         successStories?.stories?.map((story: any) => (
-          <div class="rounded-xl border p-6 shadow-sm">
+          <article class="overflow-hidden rounded-2xl bg-white shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-xl">
+
+            <div class="p-6">
+
+              <p class="text-sm font-semibold text-blue-900">
+                {story.industry} | {story.country}
+              </p>
+
+              <h3 class="mt-2 text-2xl font-bold text-blue-900">
+                {story.companyName}
+              </h3>
+
+            </div>
+
             {
-              story.logo && (
+              story.coverImage && (
                 <img
-                  src={urlFor(story.logo).url()}
+                  src={urlFor(story.coverImage).url()}
                   alt={story.companyName}
-                  class="h-12 mb-4"
+                  class="h-60 w-full object-cover"
                 />
               )
             }
 
-            <h3 class="text-2xl font-semibold">
-              {story.companyName}
-            </h3>
+            <div class="p-6">
 
-            <p class="text-sm text-gray-500">
-              {story.location}
-            </p>
+              <div class="flex items-center gap-4">
 
-            <p class="mt-4 text-gray-600">
-              {story.description}
-            </p>
+                {
+                  story.icon && (
+                    <img
+                      src={urlFor(story.icon).url()}
+                      alt={story.projectTitle}
+                      class="h-12 w-12 rounded-full object-contain"
+                    />
+                  )
+                }
 
-            {
-              story.button && (
-                <a
-                  href={story.button.url}
-                  class="mt-6 inline-block rounded bg-blue-600 px-5 py-2 text-white"
-                >
-                  {story.button.text}
-                </a>
-              )
-            }
-          </div>
+                <h4 class="text-2xl font-semibold text-blue-900">
+                  {story.projectTitle}
+                </h4>
+
+              </div>
+
+              <p class="mt-5 leading-8 text-gray-600">
+                {story.description}
+              </p>
+
+            </div>
+
+          </article>
         ))
       }
+
     </div>
+
   </div>
 </section>

@@ -1,29 +1,42 @@
 ---
 import { client } from "../lib/sanity";
-import { homepageQuery } from "../lib/queries";
+import { homepageQuery, headerQuery } from "../lib/queries";
 
+import Header from "../components/layout/Header.astro";
 import Hero from "../components/home/Hero.astro";
 import Statistics from "../components/home/Statistics.astro";
 import Solutions from "../components/home/Solutions.astro";
 import Process from "../components/home/Process.astro";
 import SuccessStories from "../components/home/SuccessStories.astro";
-import TrustedBrands from "../components/home/TrustedBrands.astro";
+import TrustBrands from "../components/home/TrustBrands.astro";
 import Testimonials from "../components/home/Testimonials.astro";
 import WhoWeWorkWith from "../components/home/WhoWeWorkWith.astro";
 import Faq from "../components/home/Faq.astro";
 import Footer from "../components/layout/Footer.astro";
+
+import "../styles/global.css";
+
 const homepage = await client.fetch(homepageQuery);
+const header = await client.fetch(headerQuery);
 ---
 
+<Header header={header} />
 <Hero hero={homepage.hero} />
 
 <Statistics statistics={homepage.statistics} />
 
 <Solutions solutions={homepage.solutions} />
+
 <Process process={homepage.process} />
+
 <SuccessStories successStories={homepage.successStories} />
-<TrustedBrands trustedBrands={homepage.trustedBrands} />
+
+<TrustBrands trustedBrands={homepage.trustedBrands} />
+
 <Testimonials testimonial={homepage.testimonial} />
+
 <WhoWeWorkWith whoWeWorkWith={homepage.whoWeWorkWith} />
-<Footer footer={homepage.footer} />
+
 <Faq faq={homepage.faq} />
+
+<Footer footer={homepage.footer} />

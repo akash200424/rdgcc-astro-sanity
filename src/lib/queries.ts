@@ -13,3 +13,12 @@ export const homepageQuery = `
   footer
 }
 `;
+
+export const headerQuery = `
+*[_type == "header"][0]{
+  logo,
+  navigation,
+  aboutMenu,
+  ctaButton
+}
+`;

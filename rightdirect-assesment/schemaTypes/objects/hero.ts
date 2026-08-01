@@ -4,12 +4,47 @@ export default defineType({
   name: 'hero',
   title: 'Hero Section',
   type: 'object',
+
   fields: [
     defineField({
-      name: 'heading',
-      title: 'Heading',
-      type: 'string',
-      validation: (Rule) => Rule.required(),
+      name: 'headingLines',
+      title: 'Heading Lines',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'normalText',
+              title: 'Normal Text',
+              type: 'string',
+              validation: (Rule) => Rule.required(),
+            }),
+
+            defineField({
+              name: 'highlightText',
+              title: 'Highlighted Text',
+              type: 'string',
+              validation: (Rule) => Rule.required(),
+            }),
+          ],
+
+          preview: {
+            select: {
+              normal: 'normalText',
+              highlight: 'highlightText',
+            },
+
+            prepare({normal, highlight}) {
+              return {
+                title: `${normal} ${highlight}`,
+              }
+            },
+          },
+        },
+      ],
+
+      validation: (Rule) => Rule.min(1).required(),
     }),
 
     defineField({
@@ -21,18 +56,26 @@ export default defineType({
     }),
 
     defineField({
+      name: 'button',
+      title: 'Button',
+      type: 'button',
+    }),
+
+    defineField({
       name: 'image',
-      title: 'Hero Image',
+      title: 'Hero Image (Optional)',
       type: 'image',
       options: {
         hotspot: true,
       },
     }),
-
-    defineField({
-      name: 'button',
-      title: 'Primary Button',
-      type: 'button',
-    }),
   ],
+
+  preview: {
+    prepare() {
+      return {
+        title: 'Hero Section',
+      }
+    },
+  },
 })

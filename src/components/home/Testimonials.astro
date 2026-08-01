@@ -1,0 +1,75 @@
+---
+import { urlFor } from "../../lib/sanity";
+
+const { testimonial } = Astro.props;
+---
+
+<section id="testimonials" class="bg-white py-20">
+  <div class="mx-auto max-w-7xl px-6">
+
+    <h2 class="text-center text-4xl font-bold text-blue-900">
+      {testimonial.heading}
+    </h2>
+
+    {
+      testimonial.description && (
+        <p class="mx-auto mt-4 max-w-3xl text-center text-gray-600">
+          {testimonial.description}
+        </p>
+      )
+    }
+
+    <div class="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+
+      {
+        testimonial?.testimonials?.map((item: any) => (
+          <div class="rounded-2xl bg-white p-8 shadow-md transition hover:-translate-y-2 hover:shadow-xl">
+
+          
+
+            {/* Quote */}
+
+            <p class="italic leading-7 text-gray-600">
+              "{item.quote}"
+            </p>
+
+            {/* Client */}
+
+            <div class="mt-8 flex items-center gap-4">
+
+              {
+                item.clientImage && (
+                  <img
+                    src={urlFor(item.clientImage).url()}
+                    alt={item.clientName}
+                    class="h-16 w-16 rounded-full object-cover"
+                  />
+                )
+              }
+
+              <div>
+
+                <h3 class="font-semibold">
+                  {item.clientName}
+                </h3>
+
+                <p class="text-sm text-gray-500">
+                  {item.designation}
+                </p>
+
+                <p class="text-sm font-medium text-blue-700">
+                  {item.company}
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+        ))
+      }
+
+    </div>
+
+  </div>
+</section>
