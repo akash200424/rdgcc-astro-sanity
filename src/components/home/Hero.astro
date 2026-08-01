@@ -2,64 +2,57 @@
 const { hero } = Astro.props;
 ---
 
-<section
-  id="hero"
-  class="overflow-hidden bg-[#FAFBFC]"
->
+<section id="hero" class="overflow-hidden bg-[#FAFBFC]">
   <div
-    class="mx-auto grid min-h-[760px] max-w-[1900px] items-center gap-16 px-20 py-8 lg:grid-cols-[65%_35%]"
+    class="mx-auto grid min-h-[460px] max-w-[1280px] items-center gap-8 px-8 py-2 lg:grid-cols-[60%_40%]"
   >
 
     <!-- Left Content -->
-    <div class="max-w-[1100px]">
+    <div class="max-w-[700px]">
 
       <h1
-        class="space-y-2 text-[72px] font-bold leading-[1.05] tracking-[-2px]"
+        class="space-y-1 text-[46px] font-bold leading-[1.05] tracking-[-1.2px]"
       >
 
         {
           hero?.headingLines?.map((line: any) => (
-
             <div>
-
               <span class="text-[#111827]">
                 {line.normalText}
               </span>
 
               {
                 line.highlightText && (
-                  <span class="ml-3 text-[#0A4D8C]">
+                  <span class="ml-2 text-[#0A4D8C]">
                     {line.highlightText}
                   </span>
                 )
               }
 
             </div>
-
           ))
         }
 
       </h1>
 
       <p
-        class="mt-10 max-w-[900px] text-[24px] leading-[1.8] text-slate-600"
+        class="mt-5 max-w-[580px] text-[16px] leading-[1.8] text-slate-600"
       >
         {hero.description}
       </p>
 
       {
         hero?.button && (
-
           <a
             href={hero.button.url}
-            class="mt-12 inline-flex items-center gap-3 rounded-full bg-[#0A4D8C] px-10 py-5 text-[20px] font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-[#08376E] hover:shadow-2xl"
+            class="mt-6 inline-flex items-center gap-2 rounded-full bg-[#0A4D8C] px-6 py-3 text-[14px] font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-[#08376E] hover:shadow-xl"
           >
 
             {hero.button.text}
 
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
+              class="h-4 w-4"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -73,7 +66,6 @@ const { hero } = Astro.props;
             </svg>
 
           </a>
-
         )
       }
 
@@ -82,36 +74,36 @@ const { hero } = Astro.props;
     <!-- Right Illustration -->
     <div class="hidden lg:flex items-center justify-center">
 
-      <div class="relative h-[700px] w-[700px]">
+      <div class="relative h-[420px] w-[420px]">
 
         <!-- Background Block -->
         <div
-          class="absolute left-24 top-24 h-[470px] w-[470px] rounded-[42px] bg-[#EAF2FB]"
+          class="absolute left-14 top-14 h-[280px] w-[280px] rounded-[26px] bg-[#EAF2FB]"
         ></div>
 
         <!-- Outline Square -->
         <div
-          class="absolute left-40 top-40 h-[360px] w-[360px] rounded-[36px] border-[14px] border-[#DCE9F8]"
+          class="absolute left-[95px] top-[95px] h-[210px] w-[210px] rounded-[20px] border-[8px] border-[#DCE9F8]"
         ></div>
 
         <!-- Top Grey -->
         <div
-          class="absolute right-10 top-0 h-44 w-44 rounded-[30px] bg-[#C7C7C7] shadow-2xl"
+          class="absolute right-5 top-0 h-[100px] w-[100px] rounded-[18px] bg-[#C7C7C7] shadow-xl"
         ></div>
 
         <!-- Bottom Blue -->
         <div
-          class="absolute bottom-10 left-0 h-56 w-56 rounded-[34px] bg-[#4D7FAF] shadow-2xl"
+          class="absolute bottom-5 left-0 h-[135px] w-[135px] rounded-[20px] bg-[#4D7FAF] shadow-xl"
         ></div>
 
         <!-- Small Blue -->
         <div
-          class="absolute bottom-0 left-60 h-16 w-16 rounded-2xl bg-[#4D7FAF] shadow-xl"
+          class="absolute bottom-0 left-[145px] h-[36px] w-[36px] rounded-xl bg-[#4D7FAF] shadow-lg"
         ></div>
 
         <!-- Small Grey -->
         <div
-          class="absolute right-28 top-48 h-16 w-16 rounded-2xl bg-[#BDBDBD] shadow-lg"
+          class="absolute right-[65px] top-[115px] h-[36px] w-[36px] rounded-xl bg-[#BDBDBD] shadow-lg"
         ></div>
 
       </div>

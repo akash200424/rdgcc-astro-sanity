@@ -4,20 +4,20 @@ import { urlFor } from "../../lib/sanity";
 const { solutions } = Astro.props;
 ---
 
-<section id="solutions" class="bg-white py-32">
-  <div class="mx-auto max-w-[1750px] px-12">
+<section id="solutions" class="bg-white py-20">
+  <div class="mx-auto max-w-[1280px] px-8">
 
     <!-- Heading -->
-    <div class="mx-auto max-w-6xl text-center">
+    <div class="mx-auto max-w-4xl text-center">
 
       <h2
-        class="text-[64px] font-bold leading-tight tracking-tight text-[#0A4D8C]"
+        class="text-[40px] font-bold leading-tight tracking-tight text-[#0A4D8C]"
       >
         {solutions.heading}
       </h2>
 
       <p
-        class="mx-auto mt-8 max-w-5xl text-[24px] leading-10 text-slate-600"
+        class="mx-auto mt-5 max-w-3xl text-[16px] leading-7 text-slate-600"
       >
         {solutions.description}
       </p>
@@ -25,13 +25,13 @@ const { solutions } = Astro.props;
     </div>
 
     <!-- Cards -->
-    <div class="mt-24 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
+    <div class="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
 
       {
         solutions.items?.map((item: any) => (
 
           <article
-            class="flex min-h-[860px] flex-col overflow-hidden rounded-[28px] bg-white shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+            class="flex min-h-[620px] flex-col overflow-hidden rounded-[20px] bg-white shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
           >
 
             <!-- Image -->
@@ -40,60 +40,60 @@ const { solutions } = Astro.props;
                 <img
                   src={urlFor(item.icon).url()}
                   alt={item.title}
-                  class="h-[260px] w-full object-cover"
+                  class="h-[170px] w-full object-cover"
                 />
               )
             }
 
             <!-- Content -->
-            <div class="flex flex-1 flex-col p-10">
+            <div class="flex flex-1 flex-col p-6">
 
               <!-- Title -->
               <h3
-                class="text-[36px] font-bold leading-tight text-[#0A4D8C]"
+                class="text-[22px] font-bold leading-tight text-[#0A4D8C]"
               >
                 {item.title}
               </h3>
 
               <!-- Description -->
               <p
-                class="mt-6 text-[20px] leading-9 text-slate-600"
+                class="mt-4 text-[15px] leading-6 text-slate-600"
               >
                 {item.description}
               </p>
 
               <!-- Bullet Points -->
               {
-  item.bulletPoints &&
-  item.bulletPoints.length > 0 && (
+                item.bulletPoints &&
+                item.bulletPoints.length > 0 && (
 
-    <ul class="mt-8 flex-1 list-disc space-y-4 pl-7 text-[18px] leading-9 text-slate-700">
+                  <ul class="mt-5 flex-1 list-disc space-y-2 pl-5 text-[14px] leading-6 text-slate-700">
 
-      {
-        item.bulletPoints.map((point: string) => (
-          <li>{point}</li>
-        ))
-      }
+                    {
+                      item.bulletPoints.map((point: string) => (
+                        <li>{point}</li>
+                      ))
+                    }
 
-    </ul>
+                  </ul>
 
-  )
-}
+                )
+              }
 
               <!-- Button -->
-              <div class="mt-auto pt-10">
+              <div class="mt-auto pt-6">
 
                 {
                   item.button && (
                     <a
                       href={item.button.url}
-                      class="inline-flex w-fit items-center gap-3 rounded-full bg-[#0A4D8C] px-8 py-4 text-[18px] font-semibold text-white transition duration-300 hover:bg-[#08376E]"
+                      class="inline-flex w-fit items-center gap-2 rounded-full bg-[#0A4D8C] px-5 py-2.5 text-[14px] font-semibold text-white transition duration-300 hover:bg-[#08376E]"
                     >
                       {item.button.text}
 
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        class="h-6 w-6"
+                        class="h-4 w-4"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -123,3 +123,4 @@ const { solutions } = Astro.props;
 
   </div>
 </section>
+```

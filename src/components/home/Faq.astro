@@ -2,14 +2,14 @@
 const { faq } = Astro.props;
 ---
 
-<section id="faq" class="bg-[#F8F9FB] py-32">
-  <div class="mx-auto max-w-[1850px] px-16">
+<section id="faq" class="bg-[#F8F9FB] py-20">
+  <div class="mx-auto max-w-[1300px] px-8">
 
     <!-- Heading -->
-    <div class="mx-auto max-w-[1500px] text-center">
+    <div class="mx-auto max-w-[850px] text-center">
 
       <h2
-        class="text-[64px] font-bold leading-tight tracking-[-1px] text-[#0A4D8C]"
+        class="text-[40px] font-bold leading-tight tracking-[-0.5px] text-[#0A4D8C]"
       >
         {faq.heading}
       </h2>
@@ -17,7 +17,7 @@ const { faq } = Astro.props;
       {
         faq.description && (
           <p
-            class="mx-auto mt-8 max-w-[1200px] text-[24px] leading-[1.8] text-slate-600"
+            class="mx-auto mt-5 max-w-[700px] text-[16px] leading-7 text-slate-600"
           >
             {faq.description}
           </p>
@@ -27,30 +27,30 @@ const { faq } = Astro.props;
     </div>
 
     <!-- FAQ List -->
-    <div class="mx-auto mt-24 max-w-[1600px]">
+    <div class="mx-auto mt-14 max-w-[1050px]">
 
       {
         faq.items?.map((item: any) => (
 
-          <details class="group border-b border-slate-300 py-10">
+          <details class="group border-b border-slate-300 py-7">
 
             <summary
-              class="flex cursor-pointer list-none items-center justify-between gap-12"
+              class="flex cursor-pointer list-none items-center justify-between gap-8"
             >
 
               <span
-                class="pr-10 text-[34px] font-semibold leading-[1.5] text-slate-900"
+                class="pr-6 text-[22px] font-semibold leading-8 text-slate-900"
               >
                 {item.title}
               </span>
 
               <!-- Chevron -->
               <div
-                class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-slate-300 transition-transform duration-300 group-open:rotate-90"
+                class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-slate-300 transition-transform duration-300 group-open:rotate-90"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6 text-[#0A4D8C]"
+                  class="h-5 w-5 text-[#0A4D8C]"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -67,16 +67,16 @@ const { faq } = Astro.props;
             </summary>
 
             <!-- Content -->
-            <div class="mt-10 max-w-[1450px] pl-2">
+            <div class="mt-7 max-w-[950px]">
 
               <h3
-                class="text-[30px] font-semibold leading-tight text-[#0A4D8C]"
+                class="text-[20px] font-semibold leading-tight text-[#0A4D8C]"
               >
                 {item.question}
               </h3>
 
               <p
-                class="mt-6 text-[22px] leading-[1.9] text-slate-600"
+                class="mt-4 text-[15px] leading-7 text-slate-600"
               >
                 {item.answer}
               </p>
@@ -87,13 +87,13 @@ const { faq } = Astro.props;
 
                   <a
                     href={item.linkUrl}
-                    class="mt-8 inline-flex items-center gap-3 text-[20px] font-semibold text-[#0A4D8C] transition hover:underline"
+                    class="mt-6 inline-flex items-center gap-2 text-[15px] font-semibold text-[#0A4D8C] transition hover:underline"
                   >
                     {item.linkText}
 
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
+                      class="h-4 w-4"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -124,11 +124,11 @@ const { faq } = Astro.props;
     {
       faq.button && (
 
-        <div class="mt-20 text-center">
+        <div class="mt-14 text-center">
 
           <a
             href={faq.button.url}
-            class="inline-flex items-center rounded-full bg-[#0A4D8C] px-12 py-5 text-[20px] font-semibold text-white shadow-lg transition hover:bg-[#08376E]"
+            class="inline-flex items-center rounded-full bg-[#0A4D8C] px-8 py-3 text-[15px] font-semibold text-white shadow-lg transition hover:bg-[#08376E]"
           >
             {faq.button.text}
           </a>
@@ -140,3 +140,4 @@ const { faq } = Astro.props;
 
   </div>
 </section>
+```

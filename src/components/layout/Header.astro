@@ -6,36 +6,32 @@ const { header } = Astro.props;
 
 <header class="sticky top-0 z-50 border-b border-slate-200 bg-[#FCFCFA]/95 backdrop-blur-md">
 
-  <div class="mx-auto flex h-28 max-w-[1900px] items-center justify-between px-20">
+  <div class="mx-auto flex h-16 md:h-18 lg:h-20 max-w-[1280px] items-center justify-between px-5 md:px-8">
 
     <!-- Logo -->
     <a href="/" class="flex items-center">
-
       {
         header.logo && (
           <img
             src={urlFor(header.logo).url()}
             alt="Logo"
-            class="h-[100px] w-auto object-contain transition duration-300 hover:scale-105"
+            class="h-10 md:h-12 lg:h-14 w-auto object-contain transition duration-300 hover:scale-105"
           />
         )
       }
-
     </a>
 
     <!-- Desktop Navigation -->
-    <nav class="hidden items-center gap-14 lg:flex">
+    <nav class="hidden items-center gap-8 lg:flex">
 
       {
         header.navigation?.map((item: any) => (
-
           <a
             href={item.url}
-            class="relative text-[24px] font- tracking-wide text-slate-700 transition duration-300 hover:text-[#0A4D8C] after:absolute after:-bottom-2 after:left-0 after:h-[2px] after:w-0 after:bg-[#0A4D8C] after:transition-all hover:after:w-full"
+            class="relative text-[15px] font-medium tracking-wide text-slate-700 transition duration-300 hover:text-[#0A4D8C] after:absolute after:-bottom-2 after:left-0 after:h-[2px] after:w-0 after:bg-[#0A4D8C] after:transition-all hover:after:w-full"
           >
             {item.label}
           </a>
-
         ))
       }
 
@@ -43,13 +39,13 @@ const { header } = Astro.props;
       <div class="group relative">
 
         <button
-          class="flex items-center gap-2 text-[24px] font- tracking-wide text-slate-700 transition duration-300 hover:text-[#0A4D8C]"
+          class="flex items-center gap-2 text-[15px] font-medium tracking-wide text-slate-700 transition duration-300 hover:text-[#0A4D8C]"
         >
           About
 
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5 transition group-hover:rotate-180"
+            class="h-4 w-4 transition group-hover:rotate-180"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -65,19 +61,17 @@ const { header } = Astro.props;
         </button>
 
         <div
-          class="invisible absolute left-0 top-full mt-5 w-64 rounded-2xl border border-slate-200 bg-white py-3 opacity-0 shadow-xl transition-all duration-300 group-hover:visible group-hover:opacity-100"
+          class="invisible absolute left-0 top-full mt-4 w-56 rounded-xl border border-slate-200 bg-white py-2 opacity-0 shadow-lg transition-all duration-300 group-hover:visible group-hover:opacity-100"
         >
 
           {
             header.aboutMenu?.map((item: any) => (
-
               <a
                 href={item.url}
-                class="block px-7 py-4 text-[17px] font-medium text-slate-700 transition hover:bg-slate-50 hover:text-[#0A4D8C]"
+                class="block px-5 py-3 text-[14px] font-medium text-slate-700 transition hover:bg-slate-50 hover:text-[#0A4D8C]"
               >
                 {item.label}
               </a>
-
             ))
           }
 
@@ -90,14 +84,12 @@ const { header } = Astro.props;
     <!-- CTA -->
     {
       header.ctaButton && (
-
         <a
           href={header.ctaButton.url}
-          class="hidden rounded-full bg-[#0A4D8C] px-11 py-4 text-[18px] font-semibold text-white shadow-md transition hover:bg-[#08376E] hover:shadow-lg lg:inline-flex"
+          class="hidden lg:inline-flex rounded-full bg-[#0A4D8C] px-6 py-2.5 text-[14px] font-semibold text-white shadow-md transition hover:bg-[#08376E]"
         >
           {header.ctaButton.text}
         </a>
-
       )
     }
 
@@ -110,7 +102,7 @@ const { header } = Astro.props;
 
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        class="h-8 w-8 text-slate-700"
+        class="h-7 w-7 text-slate-700"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -133,48 +125,42 @@ const { header } = Astro.props;
     class="hidden border-t border-slate-200 bg-[#FCFCFA] lg:hidden"
   >
 
-    <nav class="flex flex-col py-5">
+    <nav class="flex flex-col py-4">
 
       {
         header.navigation?.map((item: any) => (
-
           <a
             href={item.url}
-            class="mobile-link px-8 py-4 text-[18px] font-medium text-slate-700 transition hover:bg-slate-100 hover:text-[#0A4D8C]"
+            class="mobile-link px-6 py-3 text-[16px] font-medium text-slate-700 transition hover:bg-slate-100 hover:text-[#0A4D8C]"
           >
             {item.label}
           </a>
-
         ))
       }
 
-      <div class="px-8 pt-6 pb-2 text-sm font-semibold uppercase tracking-widest text-slate-400">
+      <div class="px-6 pt-4 pb-2 text-xs font-semibold uppercase tracking-widest text-slate-400">
         About
       </div>
 
       {
         header.aboutMenu?.map((item: any) => (
-
           <a
             href={item.url}
-            class="mobile-link px-12 py-3 text-[18px] text-slate-700 transition hover:bg-slate-100 hover:text-[#0A4D8C]"
+            class="mobile-link px-10 py-3 text-[15px] text-slate-700 transition hover:bg-slate-100 hover:text-[#0A4D8C]"
           >
             {item.label}
           </a>
-
         ))
       }
 
       {
         header.ctaButton && (
-
           <a
             href={header.ctaButton.url}
-            class="mobile-link mx-8 mt-6 rounded-full bg-[#0A4D8C] px-8 py-4 text-center text-lg font-semibold text-white"
+            class="mobile-link mx-6 mt-5 rounded-full bg-[#0A4D8C] px-6 py-3 text-center text-[15px] font-semibold text-white"
           >
             {header.ctaButton.text}
           </a>
-
         )
       }
 
@@ -191,16 +177,13 @@ const { header } = Astro.props;
 
     if (!button || !menu) return;
 
-    // Prevent duplicate listeners after Astro navigation
     const newButton = button.cloneNode(true);
     button.parentNode.replaceChild(newButton, button);
 
-    // Toggle menu
     newButton.addEventListener("click", () => {
       menu.classList.toggle("hidden");
     });
 
-    // Close menu after clicking any link
     menu.querySelectorAll(".mobile-link").forEach((link) => {
       link.addEventListener("click", () => {
         menu.classList.add("hidden");

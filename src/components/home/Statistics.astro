@@ -4,23 +4,23 @@ const { statistics } = Astro.props;
 
 <section
   id="statistics"
-  class="bg-[#F3F3F3] py-24"
+  class="bg-[#F3F3F3] py-16"
 >
-  <div class="page-container">
+  <div class="mx-auto max-w-[1280px] px-8">
 
-    <div class="grid items-center gap-14 lg:grid-cols-[0.9fr_1.5fr]">
+    <div class="grid items-center gap-10 lg:grid-cols-[0.9fr_1.5fr]">
 
       <!-- Left -->
       <div>
 
         <h2
-          class="max-w-md text-[58px] font-bold leading-[1.1] tracking-[-1px] text-[#0A4D8C]"
+          class="max-w-md text-[38px] font-bold leading-[1.15] tracking-[-0.5px] text-[#0A4D8C]"
         >
           {statistics.title}
         </h2>
 
         <p
-          class="mt-8 max-w-md text-[23px] leading-9 text-slate-600"
+          class="mt-5 max-w-md text-[15px] leading-7 text-slate-600"
         >
           {statistics.desc}
         </p>
@@ -28,7 +28,7 @@ const { statistics } = Astro.props;
       </div>
 
       <!-- Right -->
-      <div class="grid gap-8 md:grid-cols-3">
+      <div class="grid gap-5 md:grid-cols-3">
 
         {
           statistics.items?.map((item: any) => {
@@ -38,11 +38,11 @@ const { statistics } = Astro.props;
 
             return (
               <div
-                class="rounded-[26px] bg-white p-12 shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition duration-300 hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(0,0,0,0.12)]"
+                class="rounded-[18px] bg-white p-6 shadow-md transition duration-300 hover:-translate-y-2 hover:shadow-xl"
               >
 
                 <h3
-                  class="counter text-center text-[64px] font-bold text-[#0A4D8C]"
+                  class="counter text-center text-[40px] font-bold text-[#0A4D8C]"
                   data-target={value}
                   data-suffix={suffix}
                 >
@@ -50,7 +50,7 @@ const { statistics } = Astro.props;
                 </h3>
 
                 <p
-                  class="mt-5 text-center text-[28px] font-semibold text-gray-600"
+                  class="mt-3 text-center text-[16px] font-semibold text-gray-600"
                 >
                   {item.label}
                 </p>
@@ -117,3 +117,4 @@ function initCounters() {
 document.addEventListener("DOMContentLoaded", initCounters);
 document.addEventListener("astro:page-load", initCounters);
 </script>
+```

@@ -6,21 +6,21 @@ const { whoWeWorkWith } = Astro.props;
 
 <section
   id="who-we-work-with"
-  class="bg-white py-32"
+  class="bg-white py-20"
 >
-  <div class="mx-auto max-w-[1850px] px-16">
+  <div class="mx-auto max-w-[1300px] px-8">
 
     <!-- Heading -->
-    <div class="mx-auto max-w-[1500px] text-center">
+    <div class="mx-auto max-w-[900px] text-center">
 
       <h2
-        class="text-[62px] font-bold leading-tight tracking-[-1px] text-[#0A4D8C]"
+        class="text-[40px] font-bold leading-tight tracking-[-0.5px] text-[#0A4D8C]"
       >
         {whoWeWorkWith.heading}
       </h2>
 
       <p
-        class="mx-auto mt-8 max-w-[1300px] text-[24px] leading-[1.8] text-slate-600"
+        class="mx-auto mt-5 max-w-[760px] text-[16px] leading-7 text-slate-600"
       >
         {whoWeWorkWith.description}
       </p>
@@ -28,16 +28,16 @@ const { whoWeWorkWith } = Astro.props;
     </div>
 
     <!-- Categories -->
-    <div class="mt-28 space-y-32">
+    <div class="mt-16 space-y-20">
 
       {
         whoWeWorkWith?.categories?.map((item: any, index: number) => (
 
           <div
-            class={`grid items-center gap-24 ${
+            class={`grid items-center gap-14 ${
               index % 2 === 0
-                ? "lg:grid-cols-[440px_1fr]"
-                : "lg:grid-cols-[1fr_440px]"
+                ? "lg:grid-cols-[320px_1fr]"
+                : "lg:grid-cols-[1fr_320px]"
             }`}
           >
 
@@ -51,7 +51,7 @@ const { whoWeWorkWith } = Astro.props;
                       <img
                         src={urlFor(item.image).url()}
                         alt={item.title}
-                        class="h-[400px] w-[400px] rounded-full object-cover shadow-2xl"
+                        class="h-[280px] w-[280px] rounded-full object-cover shadow-xl"
                       />
                     )
                   }
@@ -60,16 +60,16 @@ const { whoWeWorkWith } = Astro.props;
 
               ) : (
 
-                <div class="max-w-[1050px]">
+                <div class="max-w-[760px]">
 
                   <h3
-                    class="text-[42px] font-bold leading-tight text-[#0A4D8C]"
+                    class="text-[28px] font-bold leading-tight text-[#0A4D8C]"
                   >
                     {item.title}
                   </h3>
 
                   <p
-                    class="mt-8 text-[24px] leading-[1.85] text-slate-600"
+                    class="mt-5 text-[16px] leading-7 text-slate-600"
                   >
                     {item.description}
                   </p>
@@ -82,16 +82,16 @@ const { whoWeWorkWith } = Astro.props;
             {
               index % 2 === 0 ? (
 
-                <div class="max-w-[1050px]">
+                <div class="max-w-[760px]">
 
                   <h3
-                    class="text-[42px] font-bold leading-tight text-[#0A4D8C]"
+                    class="text-[28px] font-bold leading-tight text-[#0A4D8C]"
                   >
                     {item.title}
                   </h3>
 
                   <p
-                    class="mt-8 text-[24px] leading-[1.85] text-slate-600"
+                    class="mt-5 text-[16px] leading-7 text-slate-600"
                   >
                     {item.description}
                   </p>
@@ -107,7 +107,7 @@ const { whoWeWorkWith } = Astro.props;
                       <img
                         src={urlFor(item.image).url()}
                         alt={item.title}
-                        class="h-[400px] w-[400px] rounded-full object-cover shadow-2xl"
+                        class="h-[280px] w-[280px] rounded-full object-cover shadow-xl"
                       />
                     )
                   }
@@ -126,3 +126,4 @@ const { whoWeWorkWith } = Astro.props;
 
   </div>
 </section>
+```

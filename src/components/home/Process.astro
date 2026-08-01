@@ -4,31 +4,33 @@ import { urlFor } from "../../lib/sanity";
 const { process } = Astro.props;
 ---
 
-<section id="our-work" class="bg-[#FAFBFC] py-28">
-  <div class="mx-auto max-w-[1800px] px-12">
+<section id="our-work" class="bg-[#FAFBFC] py-20">
+  <div class="mx-auto max-w-[1280px] px-8">
 
     <!-- Heading -->
-    <div class="mx-auto max-w-[1300px] text-center">
+    <div class="mx-auto max-w-[850px] text-center">
+
       <h2
-        class="text-[64px] font-bold leading-tight tracking-[-1px] text-[#0A4D8C]"
+        class="text-[40px] font-bold leading-tight tracking-[-0.5px] text-[#0A4D8C]"
       >
         {process.heading}
       </h2>
 
       <p
-        class="mx-auto mt-8 max-w-[1100px] text-[24px] leading-10 text-slate-600"
+        class="mx-auto mt-5 max-w-[720px] text-[16px] leading-7 text-slate-600"
       >
         {process.description}
       </p>
+
     </div>
 
     <!-- Cards -->
-    <div class="mt-20 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
+    <div class="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
 
       {
         process?.steps?.map((step: any) => (
           <div
-            class="flex min-h-[500px] flex-col rounded-[32px] bg-white p-12 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+            class="flex min-h-[330px] flex-col rounded-[20px] bg-white p-6 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
           >
 
             <!-- Icon -->
@@ -37,21 +39,21 @@ const { process } = Astro.props;
                 <img
                   src={urlFor(step.icon).url()}
                   alt={step.title}
-                  class="mb-8 h-14 w-14 object-contain"
+                  class="mb-5 h-10 w-10 object-contain"
                 />
               )
             }
 
             <!-- Title -->
             <h3
-              class="text-[36px] font-bold leading-tight text-[#0A4D8C]"
+              class="text-[22px] font-bold leading-tight text-[#0A4D8C]"
             >
               {step.title}
             </h3>
 
             <!-- Description -->
             <p
-              class="mt-6 text-[22px] leading-10 text-slate-600"
+              class="mt-4 text-[15px] leading-7 text-slate-600"
             >
               {step.description}
             </p>
@@ -64,3 +66,4 @@ const { process } = Astro.props;
 
   </div>
 </section>
+```

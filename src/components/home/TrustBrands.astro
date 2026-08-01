@@ -4,34 +4,43 @@ import { urlFor } from "../../lib/sanity";
 const { trustedBrands } = Astro.props;
 ---
 
-<section id="trusted-brands" class="bg-white py-32">
+<section id="trusted-brands" class="bg-white py-20">
   <div class="page-container">
 
     <!-- Heading -->
     <div class="text-center">
+
       <h2
-        class="text-[64px] font-bold tracking-[-1px] text-[#0A4D8C]"
+        class="text-[40px] font-bold tracking-[-0.5px] text-[#0A4D8C]"
       >
         {trustedBrands.heading}
       </h2>
+
     </div>
 
     <!-- Logos -->
     <div
-      class="mx-auto mt-20 grid max-w-[1500px] grid-cols-2 items-center gap-y-16 gap-x-12 md:grid-cols-3 lg:grid-cols-5"
+      class="mx-auto mt-14 grid max-w-[1200px] grid-cols-2 items-center gap-x-8 gap-y-12 md:grid-cols-3 lg:grid-cols-5"
     >
+
       {
         trustedBrands?.brands?.map((brand: any) => (
+
           <div class="flex items-center justify-center">
+
             <img
               src={urlFor(brand.logo).url()}
               alt={brand.name || "Brand"}
-              class="h-25 w-auto object-contain opacity-90 transition duration-300 hover:scale-105 hover:opacity-100"
+              class="h-16 w-auto object-contain opacity-90 transition duration-300 hover:scale-105 hover:opacity-100"
             />
+
           </div>
+
         ))
       }
+
     </div>
 
   </div>
 </section>
+```
