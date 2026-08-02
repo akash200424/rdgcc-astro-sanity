@@ -38,7 +38,13 @@ const { solutions } = Astro.props;
             {
               item.icon && (
                 <img
-                  src={urlFor(item.icon).url()}
+                  src={urlFor(item.icon)
+                        .width(700)
+                        .height(450)
+                        .fit("crop")
+                        .auto("format")
+                        .quality(80)
+                        .url()}
                   alt={item.title}
                   class="h-[170px] w-full object-cover"
                 />

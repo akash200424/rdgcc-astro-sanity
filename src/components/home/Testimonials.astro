@@ -56,7 +56,13 @@ const { testimonial } = Astro.props;
                     {
                       item.clientImage && (
                         <img
-                          src={urlFor(item.clientImage).url()}
+                          src={urlFor(item.clientImage)
+  .width(200)
+  .height(200)
+  .fit("crop")
+  .auto("format")
+  .quality(80)
+  .url()}
                           alt={item.clientName}
                           class="h-28 w-28 rounded-full border-4 border-white object-cover shadow-lg"
                         />

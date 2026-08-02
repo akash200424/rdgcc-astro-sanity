@@ -57,7 +57,13 @@ const { successStories } = Astro.props;
                 <div class="px-6 pt-5">
 
                   <img
-                    src={urlFor(story.coverImage).url()}
+                    src={urlFor(story.coverImage)
+                    .width(700)
+                    .height(450)
+                    .fit("crop")
+                    .auto("format")
+                    .quality(80)
+                    .url()}
                     alt={story.companyName}
                     class="h-[200px] w-full rounded-[14px] object-cover"
                   />

@@ -105,7 +105,13 @@ const { whoWeWorkWith } = Astro.props;
                   {
                     item.image && (
                       <img
-                        src={urlFor(item.image).url()}
+                        src={urlFor(item.image)
+  .width(200)
+  .height(200)
+  .fit("crop")
+  .auto("format")
+  .quality(80)
+  .url()}
                         alt={item.title}
                         class="h-[280px] w-[280px] rounded-full object-cover shadow-xl"
                       />
